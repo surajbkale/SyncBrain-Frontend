@@ -11,14 +11,14 @@ interface ButtonProps {
 
 const variantstyles = {
   primary:
-    "bg-black text-white   hover:bg-zinc-900 font-normal trasition duration-200 flex justify-center items-center",
+    "bg-zinc-900 text-white   hover:bg-black/60 font-normal trasition duration-200 flex justify-center items-center",
   secondary:
-    "bg-gray-100 text-black font-normal  hover:bg-gray-300   trasition duration-200 flex justify-center items-center",
+    "bg-gray-200 text-black font-normal  hover:bg-gray-300   trasition duration-200 flex justify-center items-center",
   // icons : "text-gray bg-white border dark:text-white dark:bg-black dark:border rounded-full"
 };
 
 const sizeStyles = {
-  sm: "px-1.5 py-2 text-sm",
+  sm: "px-1.5 py-2 text-[.9rem]",
   md: "px-3 py-2 text-md",
   lg: "px-4 py-2 text-lg",
 };
