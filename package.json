@@ -16,7 +16,8 @@
     "@mui/material": "^7.3.5",
     "lucide-react": "^0.553.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-twitter-embed": "^4.0.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

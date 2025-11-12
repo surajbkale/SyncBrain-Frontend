@@ -3,6 +3,8 @@ import { NoteIcon } from "../icons/NoteIcon";
 import { Delete } from "../icons/Delete";
 import { ShareIcon } from "../icons/ShareIcon";
 import { Link } from "lucide-react";
+import { TwitterTweetEmbed } from "react-twitter-embed";
+import { Expand } from "../icons/Expand";
 
 interface CardProps {
   title: string;
@@ -22,7 +24,7 @@ const Card: React.FC<CardProps> = ({
   };
 
   const isValidTwitterUrl = (url: string) => {
-    return url.match(/^(https?:\/\/)?(www\.)?(twitter\.com|x\.com)/);
+    return url.match(/^(https?:\/\/)?(twitter\.com|x\.com)/);
   };
 
   const getYoutubeEmbedUrl = (url: string) => {
@@ -33,13 +35,13 @@ const Card: React.FC<CardProps> = ({
   };
   const getTwitterTweetId = (url: string) => {
     const matches = url.match(/\/status\/(\d+)/);
-    return matches ? matches[1] : null;
+    return matches ? matches[1] : "nothing";
   };
 
   const renderContent = () => {
     if (type === "note") {
       return (
-        <div className="p-3">
+        <div className="p-2">
           <p className="text-gray-700">{content}</p>
         </div>
       );
@@ -47,7 +49,7 @@ const Card: React.FC<CardProps> = ({
       if (isValidYoutubeUrl(url)) {
         const embedUrl = getYoutubeEmbedUrl(url);
         return (
-          <div className="aspect-video mt-2">
+          <div className="">
             <iframe
               src={embedUrl || ""}
               className="w-full h-full rounded-lg"
@@ -59,24 +61,21 @@ const Card: React.FC<CardProps> = ({
         const tweetId = getTwitterTweetId(url);
         if (tweetId) {
           return (
-            <div className="p-3">
-              <div
-                className="twitter-tweet twitter-tweet-rendered"
-                style={{ minHeight: "300px" }}
-              >
-                <blockquote
-                  className="twitter-tweet"
-                  data-conversation="none"
-                  data-theme="light"
-                >
-                  <a href={url}></a>
-                </blockquote>
+            <div className=" overflow-auto m-0 ">
+              <div className="w-full ">
+                <TwitterTweetEmbed
+                  tweetId={tweetId}
+                  options={{
+                    theme: "dark",
+                    width: "100%",
+                  }}
+                />
               </div>
             </div>
           );
         } else {
           return (
-            <div className="p-3">
+            <div className="">
               <a
                 href={url}
                 target="_blank"
@@ -94,35 +93,45 @@ const Card: React.FC<CardProps> = ({
   };
 
   return (
-    <div className="flex flex-col bg-white rounded-lg p-2">
-      <div className="flex justify-between bg-gray-200 p-2 gap-5 rounded-lg">
+    <div className="flex flex-col bg-white rounded-md p-1 justify-between items-center ">
+      <div className="flex justify-between  p-2 min-w-72 max-w-72 gap-5 rounded-lg ">
         <div className="flex items-center gap-1">
-          <div className="bg-gray-200 rounded-lg p-1 border-gray-400">
+          <div className="bg-gray-200/50 rounded-full p-1 border-gray-400">
             {type === "note" ? <NoteIcon /> : <Link size={14} />}
           </div>
           <h2 className="text-sm font-semibold">{title}</h2>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 ">
           {type == "url" ? (
-            <button className="bg-gray-200 rounded-lg p-1 border border-gray-400 hover:bg-gray-300 transition duration-300">
+            <button className="bg-gray-200 rounded-lg p-1 border border-gray-400/50 hover:bg-gray-300 transition duration-300">
               <a href={url} target="_blank" rel="noopener noreferrer">
                 <ShareIcon />
               </a>
             </button>
-          ) : null}
+          ) : (
+            <button className="bg-gray-200 rounded-lg p-1 border border-gray-400/50 hover:bg-gray-300 transition duration-300">
+              <Expand />
+            </button>
+          )}
 
-          <button className="bg-gray-200 rounded-lg p-1 border border-gray-400 hover:bg-gray-300 duration-300">
+          <button className="bg-gray-200 rounded-lg p-1 border border-gray-400/50 hover:bg-gray-300 duration-300">
             <Delete />
           </button>
         </div>
       </div>
-      <div className="border min-w-64 max-w-64 bg-white rounded-lg shadow-lg p-2 m-1 gap-1 max-h-60 overflow-y-auto ">
-        <div className="bg-gray-200 mt-2 rounded-lg p-1">{renderContent()}</div>
+      <div className="border min-w-72 max-w-72 mt-1 bg-white rounded-lg shadow-lg p-0.5 m-1 gap-1 max-h-60 overflow-y-auto ">
+        {type == "url" ? (
+          <div className="bg-gray-200 rounded-lg p-1 text-sm min-h-56 horizontal-scroll overflow-hidden">
+            {renderContent()}
+          </div>
+        ) : (
+          <div className="bg-yellow-100 rounded-lg p-1 text-sm min-h-56 horizontal-scroll overflow-hidden">
+            {renderContent()}
+          </div>
+        )}
       </div>
-      <div className="max-h-10 mt-0">
-        <button className="bg-white p-2 rounded-lg w-full max-h-10">
-          Query
-        </button>
+      <div className="bg-gray-200 h-10 mt-1 min-w-72 max-w-72 rounded-lg flex items-center justify-center bottom-0 mb-0 border hover:bg-gray-300 transition-all duration-300 border-gray-300">
+        <button className="rounded-lg w-full max-h-10 ">Query</button>
       </div>
     </div>
   );
