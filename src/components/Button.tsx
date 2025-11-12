@@ -9,9 +9,9 @@ interface ButtonProps {
 }
 
 const variantstyles = {
-  primary: "bg-black, text-white hover: bg-gray-800",
+  primary: "bg-black, text-white hover: bg-zinc-800",
   secondary:
-    "bg-white text-black border hover:bg-gray-200 hover:border-gray-300",
+    "bg-gray-100 text-black border hover:bg-gray-200 hover:border-gray-300",
 };
 
 const sizeStyles = {
@@ -21,7 +21,7 @@ const sizeStyles = {
 };
 
 const defaultStyles =
-  "rounded-lg fount-sans font-semibold shadow flex m-2 justify-center items-center";
+  "rounded-lg fount-sans font-semibold shadow flex justify-center items-center";
 
 export const Button = ({
   variant,
