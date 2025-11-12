@@ -3,7 +3,7 @@ import type { ReactElement } from "react";
 interface ButtonProps {
   variant: "primary" | "secondary";
   //   | "icons";
-  text: string | ReactElement;
+  text: string | React.ReactNode;
   startIcon?: ReactElement;
   endIcon?: ReactElement;
   size: "sm" | "md" | "lg";
@@ -14,7 +14,7 @@ const variantstyles = {
     "bg-black text-white   hover:bg-zinc-900 font-normal trasition duration-200",
   secondary:
     "bg-gray-100 text-black font-normal  hover:bg-gray-300   trasition duration-200",
-  //   icons : "text-gray bg-white border dark:text-white dark:bg-black dark:border rounded-full"
+  // icons : "text-gray bg-white border dark:text-white dark:bg-black dark:border rounded-full"
 };
 
 const sizeStyles = {

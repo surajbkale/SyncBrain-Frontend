@@ -104,11 +104,11 @@ const Card: React.FC<CardProps> = ({
       </div>
       <div className="border min-w-72 max-w-72 mt-1 bg-white rounded-lg shadow-lg p-0.5 m-1 gap-1 max-h-60 overflow-y-auto ">
         {type == "url" ? (
-          <div className="bg-gray-200 rounded-lg p-1 text-sm min-h-56 horizontal-scroll overflow-hidden">
+          <div className="bg-gray-200 rounded-lg p-.5 text-sm min-h-56 horizontal-scroll overflow-hidden">
             {renderContent()}
           </div>
         ) : (
-          <div className="bg-yellow-100 rounded-lg p-1 text-sm min-h-56 horizontal-scroll overflow-hidden">
+          <div className="bg-yellow-100 rounded-lg p-.5 text-sm min-h-56 horizontal-scroll overflow-hidden">
             {renderContent()}
           </div>
         )}
