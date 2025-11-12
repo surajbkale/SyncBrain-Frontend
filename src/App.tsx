@@ -1,7 +1,25 @@
 import "./App.css";
+import { Button } from "./components/Button";
+import { ShareIcon } from "./icons/ShareIcon";
 
 function App() {
-  return <div className="bg-red-500">hi</div>;
+  return (
+    <>
+      <Button
+        variant="secondary"
+        text="Share Brain"
+        size="sm"
+        startIcon={<ShareIcon />}
+      />
+
+      <Button
+        variant="secondary"
+        text="Share Brain"
+        size="sm"
+        startIcon={<ShareIcon />}
+      />
+    </>
+  );
 }
 
 export default App;
