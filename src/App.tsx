@@ -10,7 +10,7 @@ import LinkIcon from "@mui/icons-material/Link";
 function App() {
   return (
     <div className="flex justify-center items-center m-10">
-      <div className="   bg-zinc-900  max-w-6xl  mx-auto flex flex-col justify-center items-center">
+      <div className="   bg-zinc-900  max-w-5xl  mx-auto flex flex-col justify-center items-center">
         <div className=" flex gap-2 p-2 bg-zinc-600/30 w-fit rounded-lg ">
           <Button
             variant="secondary"
@@ -26,7 +26,7 @@ function App() {
           />
         </div>
 
-        <div className="flex gap-2 m-4 md:justify-center justify-start flex-wrap mt-20 p-6 rounded-lg bg-zinc-600/30">
+        <div className="flex gap-2 m-4 md:justify-center justify-start flex-wrap mt-20 p-8 rounded-lg bg-zinc-600/30">
           <Card
             title="Meeting Notes"
             type="note"
@@ -44,9 +44,9 @@ Let me know if you'd like this refined or expanded!y's meeting...Important point
           />
 
           <Card
-            title="Tweet Link"
+            title="Big twitter heading"
             type="url"
-            url="https://x.com/100xDevs/status/1879476925279949115"
+            url="https://x.com/merishabh_singh/status/1879431445946745266"
           />
           <Card
             title="Tweet Link"
@@ -64,13 +64,6 @@ Let me know if you'd like this refined or expanded!y's meeting...Important point
             url="https://www.youtube.com/watch?v=B2UBMTA57JI&list=RDB2UBMTA57JI&start_radio=1"
           />
         </div>
-        {/* <div className="flex gap-2">
-
-<Chips text={"Links"}/>
-<Chips text={"Notes"}/>
-<Chips text={"Date"}/>
-<Chips text={"Random"}/>
-</div> */}
       </div>
     </div>
   );
