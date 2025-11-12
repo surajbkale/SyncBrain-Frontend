@@ -2,6 +2,7 @@ import type { ReactElement } from "react";
 
 interface ButtonProps {
   variant: "primary" | "secondary";
+  //   | "icons";
   text: string;
   startIcon?: ReactElement;
   endIcon?: ReactElement;
@@ -9,9 +10,9 @@ interface ButtonProps {
 }
 
 const variantstyles = {
-  primary: "bg-black, text-white hover: bg-zinc-800",
-  secondary:
-    "bg-gray-100 text-black border hover:bg-gray-200 hover:border-gray-300",
+  primary: "bg-black text-white   hover:bg-zinc-800",
+  secondary: "bg-gray-100 text-black  hover:bg-gray-300 ",
+  //   icons : "text-gray bg-white border dark:text-white dark:bg-black dark:border rounded-full"
 };
 
 const sizeStyles = {
@@ -21,7 +22,7 @@ const sizeStyles = {
 };
 
 const defaultStyles =
-  "rounded-lg fount-sans font-semibold shadow flex justify-center items-center";
+  "rounded-lg font-sans font-semibold shadow  flex justify-center items-center";
 
 export const Button = ({
   variant,
@@ -36,11 +37,11 @@ export const Button = ({
         sizeStyles[size] + " " + variantstyles[variant] + " " + defaultStyles
       }
     >
-      <div className="flex justify-center items-center gap-2">
+      <div className="flex justify-center items-center gap-2 ">
         <span>{startIcon}</span>
         <div>{text}</div>
+        {endIcon}
       </div>
-      {endIcon}
     </button>
   );
 };
